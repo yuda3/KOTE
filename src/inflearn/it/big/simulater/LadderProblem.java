@@ -10,22 +10,13 @@ public class LadderProblem {
             answer[i] = c++;
         }
         char temp;
-        int count;
-        for (int i = 0; i < ladder.length; i++) {
-            count = 0;
-            for (int j = 0; j < ladder[i].length; j++) {
-                temp =answer[ladder[i][j]];
-                answer[ladder[i][j]] = answer[ladder[i][j] - 1];
-                answer[ladder[i][j]-1] = temp;
+        for (int[] ints : ladder) {
+            for (int anInt : ints) {
+                temp = answer[anInt];
+                answer[anInt] = answer[anInt - 1];
+                answer[anInt - 1] = temp;
             }
         }
-//        for(int[] line : ladder){
-//            for(int x : line){
-//                char tmp = answer[x];
-//                answer[x] = answer[x-1];
-//                answer[x-1] = tmp;
-//            }
-//        }
         return answer;
     }
 
