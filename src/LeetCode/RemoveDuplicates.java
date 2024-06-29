@@ -1,0 +1,18 @@
+package LeetCode;
+
+public class RemoveDuplicates {
+    public int removeDuplicates(int[] nums) {
+        if (nums.length <= 2) return nums.length;
+
+        int insertPos = 2; // 첫 두 개의 요소는 그대로 두기 때문에 2로 시작
+
+        for (int i = 2; i < nums.length; i++) {
+            if (nums[i] != nums[insertPos - 2]) {
+                nums[insertPos] = nums[i];
+                insertPos++;
+            }
+        }
+
+        return insertPos;
+    }
+}
