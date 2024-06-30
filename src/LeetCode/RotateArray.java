@@ -9,6 +9,8 @@ public class RotateArray {
     }
     
     public void rotate(int[] nums, int k){
+        //Brute Force
+        /*
         k %= nums.length;
         int temp, previous;
         for (int i = 0; i < k; i++) {
@@ -19,6 +21,15 @@ public class RotateArray {
                 previous = temp;
 
             }
+        }
+         */
+        //Using Extra Array
+        int[] a = new int[nums.length];
+        for (int i = 0; i < nums.length; i++) {
+            a[(i + k) % nums.length] = nums[i];
+        }
+        for (int i = 0; i < nums.length; i++) {
+            nums[i] = a[i];
         }
         System.out.println(Arrays.toString(nums));
     }
